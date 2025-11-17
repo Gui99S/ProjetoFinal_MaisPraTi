@@ -127,8 +127,9 @@ function UserProfile() {
         const formData = new FormData();
         formData.append('file', avatarFile);
         
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         // Upload avatar to backend
-        const uploadResponse = await fetch('http://localhost:8000/api/users/me/avatar', {
+        const uploadResponse = await fetch(`${apiUrl}/api/users/me/avatar`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`
@@ -138,7 +139,7 @@ function UserProfile() {
         
         if (uploadResponse.ok) {
           const result = await uploadResponse.json();
-          updatedData.avatar = `http://localhost:8000${result.avatar_url}`;
+          updatedData.avatar = `${apiUrl}${result.avatar_url}`;
         } else {
           alert('Failed to upload avatar');
           return;

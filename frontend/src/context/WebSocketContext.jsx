@@ -35,7 +35,11 @@ export function WebSocketProvider({ children }) {
       wsRef.current.close();
     }
 
-    const wsUrl = `ws://localhost:8000/api/ws?token=${token}`;
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    // Convert http/https to ws/wss protocol
+    const wsProtocol = apiUrl.startsWith('https') ? 'wss' : 'ws';
+    const wsBaseUrl = apiUrl.replace(/^https?:\/\//, '');
+    const wsUrl = `${wsProtocol}://${wsBaseUrl}/api/ws?token=${token}`;
     console.log('WebSocket: Connecting to', wsUrl);
 
     const ws = new WebSocket(wsUrl);
