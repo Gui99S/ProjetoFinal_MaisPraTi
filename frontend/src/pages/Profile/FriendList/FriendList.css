@@ -1,0 +1,97 @@
+/* Layout for FriendList page */
+.friendlist-container {
+  width: 96.5%;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 0;
+  background: var(--bg-secondary);
+  margin-top: -94.5px;
+}
+
+.friendlist-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-primary);
+  border-radius: 12px;
+}
+
+.friends-header h2 {
+  margin: 0 0 8px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--bg-primary);
+}
+
+.friends-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+.friends-header .btn.btn-secondary {
+  width: 200px;
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.friend-card {
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  margin: 20px auto;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.04);
+}
+
+.friend-link { 
+  text-decoration: none !important; 
+  color: inherit; 
+  display: block; 
+  width: 100%; 
+}
+.friend-link:hover {
+  text-decoration: none !important;
+}
+
+.friend-card-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 0 auto 8px;
+  display: block;
+}
+
+.friend-card-name {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.friend-card-location {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+@media (max-width: 1000px) {
+  .friendlist-container { grid-template-columns: 220px 1fr; }
+  .friends-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .friendlist-container { grid-template-columns: 1fr; }
+  .profile-sidebar { order: 0; }
+  .friendlist-main { order: 1; }
+  .friends-grid { grid-template-columns: repeat(2, 1fr); }
+}

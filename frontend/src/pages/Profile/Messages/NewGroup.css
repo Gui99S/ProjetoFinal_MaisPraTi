@@ -1,0 +1,321 @@
+/* New Group Specific Styles */
+.newgroup-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Step 1: Name & Photo */
+.newgroup-name-step {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 12px 0;
+}
+
+.newgroup-name-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.newgroup-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.newgroup-name-input {
+  padding: 12px 16px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newgroup-name-input:focus {
+  border-color: #3498db;
+}
+
+.newgroup-char-count {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.newgroup-avatar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.newgroup-avatar-upload {
+  position: relative;
+  width: fit-content;
+}
+
+.newgroup-avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 2px dashed var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 32px;
+}
+
+.newgroup-avatar-upload .btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  padding: 0;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.newgroup-next-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.newgroup-next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Step 2: Select Friends */
+.newgroup-selected-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+}
+
+.newgroup-group-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.newgroup-preview-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+}
+
+.newgroup-preview-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.newgroup-preview-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.newgroup-preview-count {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.newgroup-selected-avatars {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.newgroup-selected-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-secondary);
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.newgroup-selected-avatar:first-child {
+  margin-left: 0;
+}
+
+.newgroup-selected-more {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  border: 2px solid var(--bg-secondary);
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.newgroup-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.newgroup-search i {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.newgroup-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+}
+
+.newgroup-search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.newgroup-loading,
+.newgroup-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.newgroup-friends-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.newgroup-friend-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.newgroup-friend-card:hover {
+  background-color: var(--bg-hover);
+}
+
+.newgroup-friend-card.selected {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-color: #3498db;
+}
+
+.newgroup-friend-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.newgroup-friend-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.newgroup-friend-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.newgroup-friend-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.newgroup-friend-location i {
+  font-size: 12px;
+}
+
+.newgroup-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.newgroup-checkbox.checked {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.newgroup-checkbox i {
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .newgroup-selected-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .newgroup-selected-avatars {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .newgroup-friend-location {
+    font-size: 12px;
+  }
+}

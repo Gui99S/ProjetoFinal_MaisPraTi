@@ -1,0 +1,66 @@
+.bot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  user-select: none;
+  cursor: default;
+}
+
+/* Icon */
+.bot-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* Sizes */
+.bot-badge-small {
+  padding: 2px 6px;
+  font-size: 0.65rem;
+}
+
+.bot-badge-small .bot-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.bot-badge-medium {
+  padding: 3px 8px;
+  font-size: 0.75rem;
+}
+
+.bot-badge-medium .bot-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.bot-badge-large {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.bot-badge-large .bot-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Label */
+.bot-label {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .bot-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+}

@@ -1,0 +1,213 @@
+/* Community list page styles */
+.community-container {
+	width: 100%;
+	margin: -94.5px auto 0 !important;
+    margin-left: 0 !important;
+	display: grid;
+	grid-template-columns: 260px 1fr !important;
+	gap: 24px;
+	align-items: start;
+}
+
+.community-main .status-card {
+	background: var(--bg-primary);
+	padding: 18px;
+	border-radius: 12px;
+	width: 969px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.communities-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.communities-header h2 {
+	margin: 0;
+}
+.communities-header .btn .btn-secondary {
+	width: 240px !important;
+}
+
+/* Search and Filter Controls */
+.communities-controls {
+	display: flex;
+	gap: 12px;
+	margin: 16px 0;
+}
+
+.search-input {
+	flex: 1;
+	padding: 10px 16px;
+	border: 1px solid var(--border-color, #ddd);
+	border-radius: 8px;
+	font-size: 0.95rem;
+	background: var(--bg-primary);
+	color: var(--text-primary);
+}
+
+.search-input:focus {
+	outline: none;
+	border-color: var(--primary-color, #007bff);
+}
+
+.category-select {
+	padding: 10px 16px;
+	border: 1px solid var(--border-color, #ddd);
+	border-radius: 8px;
+	font-size: 0.95rem;
+	background: var(--bg-primary);
+	color: var(--text-primary);
+	cursor: pointer;
+	min-width: 180px;
+}
+
+.category-select:focus {
+	outline: none;
+	border-color: var(--primary-color, #007bff);
+}
+
+/* Loading and Error States */
+.loading-message,
+.error-message,
+.no-communities {
+	padding: 24px;
+	text-align: center;
+	color: var(--text-secondary);
+}
+
+.error-message {
+	color: var(--error-color, #dc3545);
+}
+
+/* Community Card Enhancements */
+.community-category {
+	font-size: 0.85rem;
+	color: var(--text-secondary);
+	margin: 4px 0;
+}
+
+.join-btn {
+	margin-top: 8px;
+	width: 100%;
+}
+
+.member-badge {
+	display: inline-block;
+	margin-top: 8px;
+	padding: 4px 12px;
+	background: var(--success-color, #28a745);
+	color: white;
+	border-radius: 4px;
+	font-size: 0.85rem;
+}
+
+/* Pagination */
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	margin-top: 24px;
+	padding: 16px 0;
+}
+
+.page-info {
+	color: var(--text-secondary);
+	font-size: 0.9rem;
+}
+
+.btn .btn-secondary {
+	font-size: 0.9rem;
+	color: var(--text-primary);
+	text-decoration: none !important;
+}
+.btn .btn-secondary:hover,
+.btn .btn-secondary:hover a {
+	text-decoration: none !important;
+}
+
+.communities-grid {
+	margin-top: 12px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+}
+
+.community-card {
+	background: var(--bg-primary);
+	padding: 12px;
+	border-radius: 8px;
+    text-decoration: none !important;
+}
+.community-card:hover {
+    text-decoration: none !important;
+	background: var(--bg-tertiary);
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.community-card:hover a {
+    text-decoration: none !important;
+}
+
+.community-link { 
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+.community-banner {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 6px;
+	display: block;
+}
+
+.community-card h3 {
+	margin: 8px 0 4px;
+	font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
+	.community-container { 
+        grid-template-columns: 220px 1fr; 
+        padding: 0 16px; 
+    }
+	.communities-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 640px) {
+  /* Mobile / small screens adjustments (only override for small screens) */
+  .community-container {
+	grid-template-columns: 1fr;
+	padding: 0 12px;
+	margin-left: 0 !important;
+	width: 50%;
+	box-sizing: border-box;
+	overflow-x: hidden; /* prevent horizontal scroll */
+  }
+
+  .profile-sidebar { order: 0; }
+  .community-main { order: 1; }
+
+  /* Make the status card full width and reduce padding */
+  .community-main .status-card { padding: 12px; }
+
+  /* Make community cards stack and use full width */
+  .communities-grid { grid-template-columns: 1fr; gap: 8px; }
+  .community-card { padding: 8px; }
+
+  /* Reduce banner height for mobile to avoid large vertical space */
+  .community-banner { height: 80px; }
+
+  /* Slightly smaller headings and tighter text */
+  .community-card h3 { font-size: 1rem; margin: 6px 0 4px; }
+  .community-card .community-desc { font-size: 0.9rem; line-height: 1.25; }
+  .community-meta { font-size: 0.8rem; color: var(--text-secondary); }
+
+  /* Ensure images and links don't overflow their cards */
+  .community-link, .community-banner { display: block; max-width: 100%; }
+}
+

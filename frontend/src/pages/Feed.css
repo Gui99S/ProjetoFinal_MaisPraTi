@@ -1,0 +1,613 @@
+/* Feed Layout */
+.feed-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 24px;
+  width: 96.5%;
+  max-width: 100vw;
+  margin: -4px auto; /* center horizontally and add top/bottom spacing */
+  align-items: start;
+  background: var(--bg-secondary);
+}
+
+.feed-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.create-post {
+  width: 100%;
+  max-width: 480px;
+  margin-top: -30px;
+  margin-bottom: 12px;
+  display: block;
+  position: relative; /* allow absolute-positioning the button inside */
+}
+.create-post-textarea {
+  width: 100%;
+  min-height: 72px;
+  padding: 12px 90px 44px 12px; /* leave space on the right and bottom for the button */
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: none;
+}
+.create-post-btn {
+  position: absolute;
+  right: -5px;
+  bottom: -3px;
+  width: 100%;
+  background: var(--btn-primary);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 0 6px 6px;
+  cursor: pointer;
+  z-index: 5; /* sit above the textarea */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.create-post-btn:hover { opacity: 0.95; }
+
+/* Make sure textarea still readable on very small screens */
+@media (max-width: 420px) {
+  .create-post-textarea { padding: 10px 76px 44px 10px; }
+  .create-post-btn { right: 8px; bottom: 6px; padding: 7px 10px; }
+}
+
+.feed-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.feed-posts-list {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100vh - 240px);
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar for feed posts */
+.feed-posts-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.feed-posts-list::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.feed-posts-list::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+.feed-posts-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+/* Firefox scrollbar */
+.feed-posts-list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--bg-tertiary);
+}
+
+.feed-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  padding: 24px;
+  width: 100%;
+  position: relative;
+}
+
+.feed-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.feed-actions {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-light);
+  margin-bottom: 12px;
+}
+
+.feed-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.feed-action-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.feed-action-btn.active-like {
+  color: #22c55e;
+}
+
+.feed-action-btn.active-like:hover {
+  color: #16a34a;
+}
+
+.feed-action-btn.active-dislike {
+  color: #ef4444;
+}
+
+.feed-action-btn.active-dislike:hover {
+  color: #dc2626;
+}
+
+.feed-action-btn i {
+  font-size: 1.1rem;
+}
+
+.feed-action-btn span {
+  font-weight: 600;
+}
+
+.feed-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.feed-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--border-light);
+}
+
+.feed-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.feed-user-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.feed-timestamp {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.feed-menu-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 6px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.feed-menu-icon:hover {
+  background: var(--bg-tertiary);
+}
+.feed-menu-dropdown {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 0;
+  box-shadow: 0 0 8px var(--shadow-light);
+  z-index: 10;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+}
+.feed-menu-dropdown button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 0;
+  transition: background 0.2s;
+}
+.feed-menu-dropdown button:last-child {
+  border-bottom: none;
+}
+.feed-menu-dropdown button:hover {
+  background: var(--bg-tertiary);
+}
+
+.feed-content {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.feed-comments {
+  margin-top: 12px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.feed-comments-list {
+  max-height: 240px; /* Approximately 3 comments height */
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 4px;
+}
+
+/* Custom scrollbar */
+.feed-comments-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.feed-comments-list::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: 3px;
+}
+
+.feed-comments-list::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 3px;
+}
+
+.feed-comments-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+/* Firefox scrollbar */
+.feed-comments-list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--text-tertiary);
+}
+
+.feed-comments h4 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.feed-comment {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 8px 0; /* vertical spacing inside each comment row */
+  border-bottom: 1px solid var(--border-medium); /* separator between comments */
+}
+.feed-comment-author {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-right: 4px;
+}
+
+.feed-comment-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+}
+.feed-comment-body {
+  display: inline-block;
+}
+
+/* Remove trailing border from last comment in a list */
+.feed-comments-list .feed-comment:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.feed-add-comment {
+  display: flex;
+  gap: 0; /* remove gap so controls sit flush */
+  align-items: center; /* vertical center; we'll set explicit heights so they match */
+  margin-top: 10px;
+  max-width: 100%;
+}
+.feed-add-textarea {
+  flex: 1 1 auto;
+  min-width: 0; /* allow flex to shrink to avoid overflow */
+  max-width: 420px; /* cap width to prevent overflow */
+  padding: 10px 12px; /* normal padding; no need for large right padding when attached */
+  height: 44px; /* fixed height to match button */
+  line-height: 1.2;
+  border-radius: 6px 0 0 6px; /* round the left corners only */
+  border: 1px solid var(--border-light);
+  border-right: none; /* remove right border so seam is single-pixel */
+  outline: none;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: none;
+  box-sizing: border-box;
+}
+.feed-add-btn {
+  background: var(--btn-primary);
+  color: #fff;
+  border-left: none; /* seam comes from textarea's right edge */
+  padding: 10px 14px;
+  height: 42px; /* match textarea height */
+  border-radius: 0 6px 6px 0; /* round the right corners to match textarea */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -1px; /* overlap 1px to eliminate hairline gaps across browsers */
+  outline: none;
+}
+.feed-add-btn:hover { 
+    opacity: 0.95; 
+}
+
+.feed-progress {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* Right Sidebar Chat */
+.feed-right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100vh - 40px);
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.chat-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  height: calc((100vh - 100px) / 2);
+  max-height: 280px;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.chat-box-header {
+  background: var(--btn-primary);
+  color: #fff;
+  padding: 12px 16px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chat-box-messages {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: visible;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Custom scrollbar for chat messages */
+.chat-box-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-box-messages::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+}
+
+.chat-box-messages::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 3px;
+}
+
+.chat-box-messages::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+/* Firefox scrollbar */
+.chat-box-messages {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--bg-tertiary);
+}
+
+.chat-message {
+  display: flex;
+  gap: 8px;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.chat-message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.chat-message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.chat-message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-message-author {
+  font-weight: bold;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chat-message-text {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.chat-menu-icon {
+  font-size: 0.75rem;
+  padding: 4px;
+  position: relative;
+}
+
+.chat-menu-icon .feed-menu-dropdown {
+  font-size: 0.85rem;
+  min-width: 120px;
+  overflow: visible;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 100;
+}
+
+.chat-menu-icon .feed-menu-dropdown button {
+  padding: 8px 12px;
+  font-size: 0.65rem;
+  z-index: 2;
+}
+
+.chat-box-input {
+  position: relative;
+  border-top: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+}
+
+.chat-box-input input,
+.chat-box-input textarea {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-light);
+  border-radius: 0 0 12px 12px;
+  padding: 10px 70px 10px 16px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+  min-height: 40px;
+  max-height: 100px;
+}
+
+.chat-box-input input:focus,
+.chat-box-input textarea:focus {
+  border-color: var(--btn-primary);
+}
+
+.chat-box-input button {
+  position: absolute;
+  right: -4px;
+  top: -4.5px;
+  background: var(--btn-primary);
+  color: #fff;
+  border: none;
+  border-radius: 0 0 12px 0;
+  padding: 8px 16px;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chat-box-input button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 1200px) {
+  .feed-layout {
+    grid-template-columns: 260px 1fr;
+  }
+  .feed-right-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .feed-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+  }
+  .feed-sidebar {
+    order: 1;
+    grid-row: 1;
+    padding: 16px;
+    align-items: stretch;
+  }
+  .create-post {
+    margin-top: 1rem;
+  }
+  .feed-main {
+    order: 2;
+    grid-row: 2;
+    padding: 12px 0;
+  }
+}

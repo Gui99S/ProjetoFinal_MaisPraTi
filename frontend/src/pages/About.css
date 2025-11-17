@@ -1,0 +1,22 @@
+/* Custom heights for each tab */
+.section-about {
+    height: 300px;
+}
+
+.section-services {
+    height: 330px;
+}
+
+.section-team {
+    height: 650px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        background: var(--bg-primary) !important;
+    }
+    
+    .section-team {
+        height: 650px !important;
+    }
+}

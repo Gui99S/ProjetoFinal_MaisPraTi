@@ -1,0 +1,91 @@
+/* CSS Custom Properties for Theme System */
+
+:root {
+  /* Light Theme Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  
+  /* Navigation Colors */
+  --nav-bg: #ffffff;
+  --nav-text: #212529;
+  --nav-hover: #6c757d;
+  --nav-accent: #34495e;
+  
+  /* Sidebar Colors */
+  --sidebar-bg: #f8f9fa;
+  --sidebar-border: #e9ecef;
+  --sidebar-hover: #e9ecef;
+  
+  /* Form Colors */
+  --form-bg: #f9f9f9;
+  --form-border: #ddd;
+  --form-focus: #3498db;
+  --form-shadow: rgba(52, 152, 219, 0.3);
+  
+  /* Button Colors */
+  --btn-primary: #3498db;
+  --btn-primary-hover: #2980b9;
+  --btn-secondary: #1EA466;
+  --btn-danger: #e74c3c;
+  --btn-danger-hover: #c0392b;
+  
+  /* Border and Shadow Colors */
+  --border-light: #e9ecef;
+  --border-medium: #dee2e6;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  
+  /* Overlay */
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+  --bg-primary: #2d2d2d;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-muted: #8a8a8a;
+  
+  /* Navigation Colors - Darker variants */
+  --nav-bg: #1a1a1a;
+  --nav-text: #ffffff;
+  --nav-hover: #5dade2;
+  --nav-accent: #b3b3b3;
+  
+  /* Sidebar Colors - Darker variants */
+  --sidebar-bg: #2d2d2d;
+  --sidebar-border: #404040;
+  --sidebar-hover: #3a3a3a;
+  
+  /* Form Colors - Dark variants */
+  --form-bg: #2d2d2d;
+  --form-border: #4a4a4a;
+  --form-focus: #5dade2;
+  --form-shadow: rgba(93, 173, 226, 0.3);
+  
+  /* Button Colors - Brighter for dark mode */
+  --btn-primary: #5dade2;
+  --btn-primary-hover: #3498db;
+  --btn-danger: #ec7063;
+  --btn-danger-hover: #e74c3c;
+  
+  /* Border and Shadow Colors */
+  --border-light: #404040;
+  --border-medium: #4a4a4a;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  
+  /* Overlay - Darker for dark mode */
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

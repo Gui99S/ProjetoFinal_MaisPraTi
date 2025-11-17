@@ -1,0 +1,30 @@
+.btn {
+  background: #3498db;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  width: fit-content !important;
+  white-space: nowrap;
+}
+
+.btn-secondary {
+  background: #1EA466;
+  color: white;
+  border: 1px solid var(--border-light);
+}
+
+.msghub-actions .btn + .btn {
+  margin-left: 8px;
+}
+
+.msghub-actions .btn:hover,
+.msghub-actions .btn-secondary {
+  text-decoration: none !important;
+}
+.msghub-actions .btn:hover {
+    filter: brightness(1.08);
+}
+.msghub-actions .btn-secondary:hover {
+    filter: brightness(1.08);
+}

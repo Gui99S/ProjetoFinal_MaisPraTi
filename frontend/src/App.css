@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Simple Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif, Arial;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  overflow-x: hidden;
+}
+
+/* Simple Page Layout */
+.page {
+  min-height: 100vh;
+  padding-top: 90px; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Main Content */
+.main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Simple Sections */
+.section {
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+p {
+  margin-bottom: 15px;
+  color: var(--text-secondary);
+}
+
+ul {
+  text-align: left;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+li {
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+}
+
+/* Simple Forms */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+form div {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--btn-primary);
+}
+
+/* Simple Buttons */
+button {
+  background-color: var(--btn-primary);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Links */
+a {
+  color: var(--btn-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Tab Navigation Styles */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.tab-button.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tab-content {
+  height: auto;
+  padding: 20px 0;
+  overflow: visible;
+}
+
+/* Developer Cards Styles */
+.dev-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.dev-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dev-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.dev-avatar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dev-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--btn-primary);
+}
+
+.dev-info {
+  text-align: center;
+}
+
+.dev-name {
+  font-size: 1.4em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.dev-role {
+  color: var(--btn-primary);
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.dev-description {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.dev-technologies h4 {
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid var(--border-light);
+}
+
+.dev-links {
+  margin-top: 20px;
+}
+
+.github-link {
+  display: inline-block;
+  background-color: var(--btn-primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.github-link:hover {
+  opacity: 0.9;
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-top: 80px;
+  }
+
+  .main {
+    padding: 15px;
+  }
+  
+  .section {
+    padding: 20px;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .tab-navigation {
+    gap: 0;
+  }
+  
+  .tab-button {
+    padding: 15px 20px;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .tab-button.active {
+    border-left-color: var(--btn-primary);
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-top: 75px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .section {
+    padding: 10px;
+    margin-bottom: 15px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .team-category > div {
+    display: block !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dev-card {
+    max-width: 100% !important;
+    padding: 1rem !important;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.75em;
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  .tab-button {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

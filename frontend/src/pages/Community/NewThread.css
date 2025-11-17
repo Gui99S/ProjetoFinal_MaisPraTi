@@ -1,0 +1,132 @@
+/* New Thread Form Styles */
+.new-thread-card {
+  background: var(--bg-tertiary);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-light);
+}
+
+.new-thread-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.new-thread-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.thread-title-input,
+.thread-content-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.thread-title-input {
+  font-weight: 600;
+}
+
+.thread-title-input:focus,
+.thread-content-input:focus {
+  outline: none;
+  border-color: var(--primary-color, #007bff);
+}
+
+.thread-title-input.error,
+.thread-content-input.error {
+  border-color: #e74c3c;
+}
+
+.thread-content-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary-color, #007bff);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-color-hover, #0056b3);
+  transform: translateY(-1px);
+}
+
+.btn-cancel {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-cancel:hover {
+  background: var(--bg-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .new-thread-card {
+    padding: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

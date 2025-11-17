@@ -1,0 +1,15 @@
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Publish directory (where Vite outputs the built files)
+  publish = "dist"
+
+# Redirect all routes to index.html for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (you'll set these in Netlify UI)
+# VITE_API_URL = "your-backend-url"

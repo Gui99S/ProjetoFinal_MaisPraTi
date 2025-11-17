@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* Navbar Styles */
+.navbar {
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-height: 60px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--nav-text);
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--nav-accent);
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Pacifico', 'Allura', 'Brush Script MT', 'Lucida Handwriting', 'Apple Chancery', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--nav-text);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.logo-text span {
+  font-family: 'Pacifico', 'Allura', 'Brush Script MT', 'Lucida Handwriting', 'Apple Chancery', cursive;
+}
+
+.logo-text:hover {
+  color: var(--nav-accent);
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.right-section {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--nav-text) !important;
+}
+
+/* Active link state */
+.nav-link.active {
+  font-weight: 700;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburger:hover {
+  background-color: transparent;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--nav-text);
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  display: block;
+  transform-origin: center;
+}
+
+/* First line - rotates to form top part of X */
+.hamburger-active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+/* Second line - fades out */
+.hamburger-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Third line - rotates to form bottom part of X */
+.hamburger-active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.overlay {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay-bg);
+  z-index: 998;
+}
+
+/* Dark mode specific navbar styles */
+[data-theme="dark"] .navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid #333;
+}
+
+/* User & Notification Section */
+.user-notification-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  height: 40px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  text-decoration: none;
+  color: var(--nav-text);
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  height: 40px;
+}
+
+.user-info:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.user-avatar-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--btn-primary);
+}
+
+.user-name-small {
+  font-size: 0.9rem;
+  font-weight: 500;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Notification Bell */
+.notification-bell-container {
+  position: relative;
+}
+
+.notification-bell {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.notification-bell:hover {
+  background-color: var(--bg-tertiary);
+  transform: scale(1.05);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 0.125rem 0.375rem;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Notification Dropdown */
+.notification-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: min(380px, calc(100vw - 2rem));
+  max-height: 500px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--shadow-light);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.notification-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mark-all-read-btn {
+  background: none;
+  border: none;
+  color: var(--btn-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.mark-all-read-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.notification-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 3px;
+}
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+.no-notifications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.no-notifications i {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+}
+
+.no-notifications p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.notification-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.notification-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+.notification-item.unread {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.notification-message {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.unread-dot {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--btn-primary);
+  border-radius: 50%;
+}
+
+.notification-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.notification-footer a {
+  color: var(--btn-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.notification-footer a:hover {
+  color: var(--btn-primary-hover);
+  text-decoration: underline;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .right-section .theme-toggle {
+    display: none;
+  }
+
+  .user-notification-section {
+    display: none; /* Hide on mobile, use sidebar instead */
+  }
+
+  .notification-dropdown {
+    width: calc(100vw - 2rem);
+    right: 0;
+    left: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .logo-text {
+    font-size: 1.75rem;
+  }
+  
+  .nav-container {
+    padding: 0.75rem 1rem;
+  }
+}
