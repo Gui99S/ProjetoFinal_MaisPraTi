@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
+import { useLanguage } from '../../context/LanguageContext';
 import communityService from '../../services/communityService';
 import './NewCommunity.css';
 
@@ -23,6 +24,7 @@ const CATEGORY_OPTIONS = [
 function NewCommunity() {
   const navigate = useNavigate();
   const { user } = useUser();
+  const { translate } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
