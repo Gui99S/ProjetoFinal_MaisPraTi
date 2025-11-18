@@ -156,21 +156,21 @@ function NewCommunity() {
       <div className="new-community-card">
         <h1 className="new-community-title">{translate('communities.create')}</h1>
         <p className="new-community-subtitle">
-          Build a space for people to connect and share
+          {translate('communities.subtitle')}
         </p>
         
         <form onSubmit={handleSubmit} className="new-community-form">
           {/* Community Name */}
           <div className="form-group">
             <label htmlFor="name" className="form-label">
-              Community Name <span className="required">*</span>
+              {translate('communities.communityName')} <span className="required">{translate('communities.nameRequired')}</span>
             </label>
             <input
               type="text"
               id="name"
               name="name"
               className={`form-input ${errors.name ? 'error' : ''}`}
-              placeholder="Enter community name"
+              placeholder={translate('communities.namePlaceholder')}
               value={formData.name}
               onChange={handleInputChange}
               maxLength={100}
@@ -182,13 +182,13 @@ function NewCommunity() {
           {/* About Description */}
           <div className="form-group">
             <label htmlFor="description" className="form-label">
-              About this Community <span className="required">*</span>
+              {translate('communities.aboutCommunity')} <span className="required">{translate('communities.nameRequired')}</span>
             </label>
             <textarea
               id="description"
               name="description"
               className={`form-textarea ${errors.description ? 'error' : ''}`}
-              placeholder="Describe what your community is about..."
+              placeholder={translate('communities.descriptionPlaceholder')}
               value={formData.description}
               onChange={handleInputChange}
               rows={5}
@@ -201,7 +201,7 @@ function NewCommunity() {
           {/* Category Select */}
           <div className="form-group">
             <label htmlFor="category" className="form-label">
-              Category <span className="required">*</span>
+              {translate('marketplace.category')} <span className="required">{translate('communities.nameRequired')}</span>
             </label>
             <select
               id="category"
@@ -210,10 +210,10 @@ function NewCommunity() {
               value={formData.category}
               onChange={handleCategoryChange}
             >
-              <option value="">Select a category</option>
+              <option value="">{translate('communities.categorySelect')}</option>
               {CATEGORY_OPTIONS.map(cat => (
                 <option key={cat} value={cat}>
-                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  {translate(`category.${cat}`)}
                 </option>
               ))}
             </select>
@@ -223,7 +223,7 @@ function NewCommunity() {
           {/* Privacy Toggle */}
           <div className="form-group">
             <label className="form-label">
-              Privacy Settings
+              {translate('communities.privacySettings')}
             </label>
             <div className="privacy-toggle">
               <label className="toggle-container">
@@ -234,13 +234,13 @@ function NewCommunity() {
                 />
                 <span className="toggle-slider"></span>
                 <span className="toggle-label">
-                  {formData.is_private ? 'Private (Invite only)' : 'Public (Anyone can join)'}
+                  {formData.is_private ? translate('communities.privateInviteOnly') : translate('communities.publicAnyone')}
                 </span>
               </label>
               <p className="form-hint">
                 {formData.is_private 
-                  ? 'Members must be approved before joining'
-                  : 'Anyone can join this community'}
+                  ? translate('communities.membersApproved')
+                  : translate('communities.anyoneCanJoin')}
               </p>
             </div>
           </div>
@@ -261,7 +261,7 @@ function NewCommunity() {
               onClick={handleCancel}
               disabled={isSubmitting}
             >
-              Cancel
+              {translate('communities.cancel')}
             </button>
             <button
               type="submit"
@@ -271,12 +271,12 @@ function NewCommunity() {
               {isSubmitting ? (
                 <>
                   <i className="fas fa-spinner fa-spin"></i>
-                  Creating...
+                  {translate('communities.creating')}
                 </>
               ) : (
                 <>
                   <i className="fas fa-plus-circle"></i>
-                  Create Community
+                  {translate('communities.createCommunity')}
                 </>
               )}
             </button>
