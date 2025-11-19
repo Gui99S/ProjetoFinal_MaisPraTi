@@ -1,4 +1,4 @@
-# 🌐 Social Network Platform
+# 🌐 Social Trial
 
 Uma plataforma de rede social moderna e completa, construída com React e Python (FastAPI), oferecendo experiência multilíngue, interações em tempo real e funcionalidades avançadas de comunidade.
 
